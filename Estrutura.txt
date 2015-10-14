@@ -1,0 +1,11 @@
+Pastas:
+  Código:
+	páginas com os códigos em formato: html,php,Javascript.
+
+  Css:
+	template e imagens que vão ser utilizadas.
+
+  Banco:
+	create das tabelas do banco de dados.
+
+  	

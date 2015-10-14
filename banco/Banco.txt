@@ -1,0 +1,25 @@
+create table colecao(
+	Id int PRIMARY KEY,
+	IdCole int not null PRIMARY KEY,
+	Nome varchar(20) not null unique,
+	foreign key (Id) references user(Id)
+	
+);
+
+
+Create table user(
+	Id int PRIMARY KEY,
+	Nome varchar(20) not null,
+	senha varchar(20) not null,
+	
+);
+
+Create table volumes(
+	IdCol int primary key not null unique,
+	volume int not null unique
+	foreign key (IdCol) references colecao(IdCol)
+);
+
+
+
+https://github.com/pauloizumi/projetointegrado
