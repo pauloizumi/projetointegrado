@@ -30,16 +30,10 @@ $dbh = new PDO('mysql:host=localhost;port=3306;dbname=manga;charset=utf8', 'root
   <input name="submit" type="submit" value="Cadastrar">
  
   </form>
- <script type="text/javascript"> 
- function chamar()´{
-	window.location.href="editarcolecao.php"
+ <form action ="editarcolecao.php">
+	 <input name="submit" type="submit" value="Editar">
 
- }
- 
- </script>
-	<button onclick="chamar()">Editar</button>
-
- 
+ </form>
  
 	
 	

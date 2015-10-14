@@ -1,8 +1,6 @@
 <?php
-
-$dbh = new PDO('mysql:host=localhost;port=3306;dbname=manga;charset=utf8', 'root', '');
+	$dbh = new PDO('mysql:host=localhost;port=3306;dbname=manga', 'root', '');
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,10 +8,10 @@ $dbh = new PDO('mysql:host=localhost;port=3306;dbname=manga;charset=utf8', 'root
     <meta charset="utf-8" />
   </head>
   <body>
-	<form action="cadvolumes.php" method="post">
+	<form action="cadvolumes.php">
       
-        <legend>Cadastrar Mangá</legend>
-        <label for="nome">Volumes:</label>
+        <legend>Cadastrar Volume</legend>
+        <label for="nome">Volume:</label>
         <input type="number" name="volume" id="volume" />
         <br />
             

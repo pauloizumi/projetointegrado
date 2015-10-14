@@ -19,10 +19,9 @@ $nome  = $_GET['nome'];
   
   <?php
 	if($resultado >0){
-		echo "<script type='javascript'>alert('Email enviado com Sucesso!');";
-echo "javascript:window.location='Home.php';</script>";
-		echo "<script language=javascript>alert( 'Alerta Vermelho!' );</script>";
-		//echo '<p>Cadastro feito com sucesso</p>';
+		
+		
+		echo '<p>Cadastro feito com sucesso</p>';
 		header("Location:Home.php");
 	}else{
 		echo '<p> Cadastro falhou :c </p>';

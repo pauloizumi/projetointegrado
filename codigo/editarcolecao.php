@@ -13,33 +13,26 @@
   
   <body>
 	<h1>Mangás:</h1>
-	<?php
-		foreach($dbh->query($sql) as $linha){
-		echo "{$linha['Id']}";
-		echo " - ";
-		echo "{$linha['Nome']}<br>";
-		echo '<br>';
-	}
-    ?>
-  	<form>
-		<label for="id">Digite o Id da Coleção:</label>
-        <input type="number" name="id" id="id" />
-        <br />
-		<label for="nome">Digite o novo nome da Coleção:</label>
-        <input type="text" name="nome1" id="nome1" />
-        <br />
+		<?php
+			foreach($dbh->query($sql) as $linha){
+			echo "{$linha['Id']}";
+			echo " - ";
+			echo "{$linha['Nome']}<br>";
+			echo '<br>';
+			}
+		?>
+		<form method="post" action="update.php">
+			<label for="id">Digite o Id da Coleção:</label>
+			<input type="number" name="id" id="id" />
+			<br />
+			<label for="nome">Digite o novo nome da Coleção:</label>
+			<input type="text" name="nome1" id="nome1" />
+			<br />
+			
+			<input type="submit" value="Salvar">
+		</form>
 		
-		<input name="submit" type="submit" value="Salvar">
-	</form>
 	
-<?php
-$id  = $_GET['id'];
-$nome  = $_GET['nome1'];
-$sql = "Update colecao set Nome='$nome' where Id = $id";
-
-?>
-
-
   </body>
  </html>
   
