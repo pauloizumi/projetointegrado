@@ -12,7 +12,7 @@
 	$id = $_POST["id"];
 
 
-	$sql = "UPDATE `colecao` set Nome ='$nome1' WHERE Id = $id";
+	$sql = "DELETE FROM `colecao` WHERE Id = $id";
 
 		if ($dbh->query($sql) === TRUE) {
 			echo "Dados salvos com sucesso!";

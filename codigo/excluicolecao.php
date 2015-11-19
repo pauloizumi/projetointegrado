@@ -8,7 +8,7 @@
 <html>
   <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Editar</title>
+    <title>Excluir</title>
     <meta charset="utf-8" />
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
@@ -23,25 +23,23 @@
 		integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   </head>
   <style>
-	div.div1{
-		padding-left:30px;
-		width:80%;
-	}
-	h1{padding-left:30px;
-		border:1px solid;
+		h1{
+			padding-left:30px;
+		 border:1px solid;
 		 border-color: #017783;
-	}
-	h3{
-		background-color:lightblue;
-	}
-	
+		}
+		h3{
+			background-color:lightblue;
+		}
+		
+  
   </style>
   <body>
-  	<div class="div1">
+  	<div style="padding-left:30px;width:80%">
   		<h1>Mangás:</h1>
-			<div class="div2" align="center">
-				<h3>Selecione abaixo a coleção que deseja alterar!</h3>
-				<form method="post" action="update.php">
+			<div align="center">
+				<h3>Selecione abaixo a coleção que deseja excluir!</h3>
+				<form method="post" action="delcolecao.php">
 					<div align="left" >
 					<label for="id">Coleção:</label>
 						<select name="id" id="id">
@@ -54,15 +52,11 @@
 								} //fim do foreach	
 						  ?>
 						</select>	
-						<br />
-						<br />
-						<label for="nome">Digite o novo nome da Coleção:</label>
-						<input type="text" name="nome1" id="nome1" required="required" />
-						<br />
-						<br />
-						<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='index.php';" />
-						<input type="submit" class="btn btn-default" value="Salvar">
-						
+					<br />
+					<br />
+					
+					<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='index.php';" />
+					<input type="submit" class="btn btn-default" value="Excluir">
 					</div>
 				</form>
 			</div>

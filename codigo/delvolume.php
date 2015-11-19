@@ -1,6 +1,4 @@
 <?php
-	date_default_timezone_set("America/Sao_Paulo");
-	$data =date("Y-m-d");
 	
 	//variaveis para a base
 	$servername = "localhost";
@@ -9,9 +7,12 @@
 	$dbname = "manga";
 
 	//variaveis vindas da tela
-	$volume  = $_POST['volume'];
+	
+	$idVolume  = $_POST['idVolume'];
 	$idColecao  = $_POST['idcolecao'];
-	$mes  = $_POST['mes'];
+
+	
+	echo $idVolume;
 	
 	$conn = new PDO('mysql:host=localhost;dbname=manga', $username, $password);
 		try {
@@ -21,15 +22,15 @@
 			echo 'ERROR: ' . $e->getMessage();
 		   }
 
-	//Inserindo dados no banco de dados.
-	$sql = "INSERT INTO volumes (volume,IdColecao,mes,data) VALUES ('$volume','$idColecao','$mes','$data')";
-	
+	$sql = "DELETE FROM volumes WHERE Id=$idVolume";
+		echo $sql;
 	if ($conn->query($sql) == TRUE) {
-    echo "Dados salvos com sucesso!";
-    header("location:listavolumes.php?id=$idColecao");
-    exit;
+      echo "Dados atualizados com sucesso!";
+      header("location:listavolumes.php?id=$idColecao");
+      exit;
 	}else {
-    echo "Falha ao salvar: " . $conn->error;
+      header("location:listavolumes.php?id=$idColecao");
+      exit;
 	}
  
 ?>
@@ -37,7 +38,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cadastro</title>
+    <title>Excluir</title>
     <meta charset="utf-8" />
   </head>
   <body>

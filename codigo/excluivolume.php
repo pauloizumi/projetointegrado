@@ -11,9 +11,9 @@
 ?>
 <!DOCTYPE html>
 <html>
+    <title>Excluir</title>
   <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Editar</title>
     <meta charset="utf-8" />
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
@@ -28,55 +28,51 @@
 		integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   </head>
   <style>
-	  h1{	padding-left:30px;
+		div.div1{
+			padding-left:30px;
+			width:80%";
+		}
+			h1{
+				padding-left:30px;
 		border:1px solid;
 		 border-color: #017783;
-	  }
-	  div.div1{
-		padding-left:30px;
-		width:80%;
-	  }
-	  h3{
-		 background-color:lightblue; 
-	  }
-	
+			}
+			h3{
+				background-color:lightblue;
+			}
+		
   </style>
   
   <body>
   <div class="div1">
   		<h1>Volumes:</h1>
 			<div align="center">
-				<h3>Selecione abaixo o volume que deseja alterar!</h3>
+				<h3>Selecione abaixo o volume que deseja excluir!</h3>
 				
 					<div align="left" >
-					<form method="post" action="updatevolume.php">
-						<label for="id">Volume:</label>
-						<select name="idVolume" id="vol">
-						  <?php
-								foreach($dbh->query($sql) as $linha)
-								{
-						  ?>
-						  	
-						  	<option name="idVolume" id="opt" value="<?= $linha['Id']; ?>"><?= $linha['volume']; ?></option>
+					<form method="post" action="delvolume.php">
+							<label for="id">Volume:</label>
+							<select name="idVolume" id="vol">
+							  <?php
+									foreach($dbh->query($sql) as $linha)
+									{
+							  ?>
+								
+								<option name="idVolume" id="opt" value="<?= $linha['Id']; ?>"><?= $linha['volume']; ?></option>
 
-						  <?php
-								} //fim do foreach	
-						  ?>
-						</select>	
+							  <?php
+									} //fim do foreach	
+							  ?>
+							</select>	
+			<br />
 						<br />
-						<br />
-					
-						<label for="nome">Digite o novo Volume:</label>
-						<input type="text" name="nome1" id="nome1" required="required" />
-						<input type="hidden" name="idcolecao" value="<?= $numeroVolume?>" />
-						<!--<input type="hidden" id="volid" value="" name="idVolume"> -->
-						<br />
-						<br />
-						<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='listavolumes.php?id=<?=$numeroVolume?>';" />
-						<input type="submit" class="btn btn-default" value="Salvar">
+							<input type="hidden" name="idcolecao" value="<?= $numeroVolume?>" />	
 						
+							
+							<input type="button" class="btn btn-default" value="Voltar" onclick="javascript: location.href='listavolumes.php?id=<?=$numeroVolume?>';" />
+							<input type="submit" class="btn btn-default" value="Excluir">
 					</form>
-					
+						
 					</div>
 				<!--</form>-->
 			</div>

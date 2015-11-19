@@ -1,32 +1,26 @@
 <?php
 		
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "manga";
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "manga";
+	$dbh = new PDO('mysql: host=localhost;port=3306;dbname=manga;charset=utf8', $username,$password);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$vol1 = $_POST["vol1"];
-$vol = $_POST["vol"];
+	$vol1 = $_POST["vol1"];
+	$vol = $_POST["vol"];
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+	$sql = "UPDATE `volumes` set volume ='$vol1' WHERE volume = $vol";
 
-	if ($conn->connect_error) {
-    die("Falha ao conectar: " . $conn->connect_error);
-	} 
-
-$sql = "UPDATE `volumes` set volume ='$vol1' WHERE volume = $vol";
-
-	if ($conn->query($sql) === TRUE) {
-    echo "Dados salvos com sucesso!";
+	if ($dbh->query($sql) === TRUE) {
+		echo "Dados salvos com sucesso!";
 	}else {
-    echo "Falha ao salvar: " . $conn->error;
-	}	
+		echo "Falha ao salvar: " . print_r($dbh->errorInfo());
 
-$conn->close();
+	}
 
-
-header('location:volumes.php');
+	header('location:listavolumes.php');
 
 			
 ?>

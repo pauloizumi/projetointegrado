@@ -1,8 +1,6 @@
 <?php
 $nome  = $_GET['nome'];
 
-
-
   $dbh = new PDO('mysql:host=localhost;port=3306;dbname=manga', 'root', '');
   $sql = "insert into colecao(Nome) values ('$nome')";
   $resultado=$dbh->exec($sql);
@@ -22,7 +20,7 @@ $nome  = $_GET['nome'];
 		
 		
 		echo '<p>Cadastro feito com sucesso</p>';
-		header("Location:Home.php");
+		header("Location:index.php");
 	}else{
 		echo '<p> Cadastro falhou :c </p>';
 	}

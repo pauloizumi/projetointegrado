@@ -1,6 +1,4 @@
 <?php
-	date_default_timezone_set("America/Sao_Paulo");
-	$data =date("Y-m-d");
 	
 	//variaveis para a base
 	$servername = "localhost";
@@ -9,9 +7,12 @@
 	$dbname = "manga";
 
 	//variaveis vindas da tela
-	$volume  = $_POST['volume'];
+	$volume  = $_POST['nome1'];
+	$idVolume  = $_POST['idVolume'];
 	$idColecao  = $_POST['idcolecao'];
-	$mes  = $_POST['mes'];
+
+	echo $volume;
+	echo $idVolume;
 	
 	$conn = new PDO('mysql:host=localhost;dbname=manga', $username, $password);
 		try {
@@ -21,15 +22,15 @@
 			echo 'ERROR: ' . $e->getMessage();
 		   }
 
-	//Inserindo dados no banco de dados.
-	$sql = "INSERT INTO volumes (volume,IdColecao,mes,data) VALUES ('$volume','$idColecao','$mes','$data')";
-	
+	$sql = "UPDATE volumes SET volume=$volume WHERE Id=$idVolume";
+		echo $sql;
 	if ($conn->query($sql) == TRUE) {
-    echo "Dados salvos com sucesso!";
-    header("location:listavolumes.php?id=$idColecao");
-    exit;
+		echo "Dados atualizados com sucesso!";
+		header("location:listavolumes.php?id=$idColecao");
+		exit;
 	}else {
-    echo "Falha ao salvar: " . $conn->error;
+		header("location:listavolumes.php?id=$idColecao");
+		exit;
 	}
  
 ?>
